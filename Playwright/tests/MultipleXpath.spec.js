@@ -11,10 +11,10 @@ test('MultiXpath',async({page})=>{
 
    await page.click('#nav-search-submit-button')
 
-   await page.waitForSelector('xpath=//div[@class="a-section"]//descendant::span[@class="a-price-whole"]')
-   await page.waitForSelector('xpath=//div[@data-cy="title-recipe"]//descendant::h2[@class="a-size-medium a-spacing-none a-color-base a-text-normal"]//child::span[1]')
+   await page.waitForSelector('xpath=//div[@class="a-section"]//descendant::h2[@class="a-size-medium a-spacing-none a-color-base a-text-normal"]//child::span[1]')
+   await page.waitForSelector('xpath=//span[@data-component-type="s-search-results"]//descendant::span[@class="a-price-whole"]')
    
-   let a=await page.$$('xpath=//div[@data-cy="title-recipe"]//descendant::h2[@class="a-size-medium a-spacing-none a-color-base a-text-normal"]//child::span[1]')
+   let a=await page.$$('xpath=//div[@class="a-section"]//descendant::h2[@class="a-size-medium a-spacing-none a-color-base a-text-normal"]//child::span[1]')
    let b=await page.$$('xpath=//div[@class="a-section"]//descendant::span[@class="a-price-whole"]')
 
 
@@ -22,10 +22,11 @@ test('MultiXpath',async({page})=>{
    for(let i=0;i<a.length;i++){
     let list=await a[i].textContent()
     let list2=await b[i].textContent()
+    console.log(a.length,b.length)
     console.log(`${list}------------>${list2}`)
    }
 
-   //hello how are u
+   //hello how
     
 
    await new Promise(()=>{});//to hold the browser
